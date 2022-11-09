@@ -4,11 +4,11 @@ from models.table import Table, TableSchema
 from controllers.auth_controller import authorize
 from flask_jwt_extended import jwt_required
 
-cards_bp = Blueprint('table', __name__,url_prefix='/table')
+table_bp = Blueprint('table', __name__,url_prefix='/table')
 
-@cards_bp.route('/')
+@table_bp.route('/')
 # @jwt_required()
-def table():
+def full_table():
     # return 'all_cards route'
     # if not authorize():
     #     return {'error': 'You must have an account'}, 401
@@ -17,14 +17,14 @@ def table():
     table = db.session.scalars(stmt)
     return TableSchema(many=True).dump(table)
 
-@cards_bp.route('/<int:team>/', methods=['DELETE'])
+@table_bp.route('/<int:team>/', methods=['DELETE'])
 @jwt_required()
 def delete_one_team(team):
     authorize()
 
     stmt = db.select(Table).filter_by(team=team)
-    card = db.session.scalar(stmt)
-    if card:
+    table = db.session.scalar(stmt)
+    if table:
         db.session.delete(team)
         db.session.commit()
         return {'message': f'Table "{table.team}" deleted successfully'}
@@ -32,35 +32,44 @@ def delete_one_team(team):
         return {'error': f'Team not found with id {id}'}, 404
 
 
-@cards_bp.route('/<int:id>/', methods=['PUT', 'PATCH'])
+@table_bp.route('/<int:team>/', methods=['PUT', 'PATCH'])
 @jwt_required()
-def update_one_cards(id):
-    stmt = db.select(Card).filter_by(id=id)
-    card = db.session.scalar(stmt)
-    if card:
-        card.title = request.json.get('title') or card.title
-        card.description = request.json.get('description') or card.description
-        card.status = request.json.get('status') or card.status
-        card.priority = request.json.get('priority') or card.priority
+def update_one_team(team):
+    stmt = db.select(Table).filter_by(team=team)
+    table = db.session.scalar(stmt)
+    if table:
+        table.team = request.json.get('team') or table.team
+        table.MP = request.json.get('MP') or table.MP
+        table.W = request.json.get('W') or table.W
+        table.D = request.json.get('D') or table.D
+        table.L = request.json.get('L') or table.L
+        table.Pts = request.json.get('Pts') or table.Pts
+        table.GF = request.json.get('GF') or table.GF
+        table.GA = request.json.get('GA') or table.GA
+        table.GD = request.json.get('GD') or table.GD
         db.session.commit()
-        return CardSchema().dump(card)
+        return TableSchema().dump(table)
     else:
-        return {'error': f'Card not found with id {id}'}, 404
+        return {'error': f'team not found {team}'}, 404
 
 
-@cards_bp.route('/', methods=['POST'])
+@table_bp.route('/', methods=['POST'])
 @jwt_required()
-def create_card():
-        # Create a new Card model instance
-        card = Card(
-            title = request.json['title'],
-            description = request.json['description'],
-            date = date.today(), # date created
-            status = request.json['status'],
-            priority = request.json['priority']
+def create_team():
+        # Create a new tema instance
+        table = Table(
+            team = request.json['team'],
+            MP = request.json['MP'],
+            W = request.json['W'],
+            D = request.json['D'],
+            L = request.json['L'],
+            Pts = request.json['Pts'],
+            GF = request.json['GF'],
+            GA = request.json['GA'],
+            GD = request.json['GD']
         )
-        # Add and commit card to DB
-        db.session.add(card)
+        # Add and commit team to DB
+        db.session.add(table)
         db.session.commit()
         # Respond to client
-        return CardSchema().dump(card), 201
+        return TableSchema().dump(table), 201

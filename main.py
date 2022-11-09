@@ -1,6 +1,6 @@
 from flask import Flask
 from init import db, ma, bcrypt, jwt
-from controllers.table_controller import cards_bp
+from controllers.table_controller import table_bp
 from controllers.auth_controller import auth_bp
 from controllers.cli_controller import db_commands
 import os
@@ -26,7 +26,7 @@ def create_app():
     bcrypt.init_app(app)
     jwt.init_app(app)
 
-    app.register_blueprint(cards_bp)
+    app.register_blueprint(table_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(db_commands)
 
