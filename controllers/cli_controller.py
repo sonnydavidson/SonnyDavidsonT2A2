@@ -30,7 +30,8 @@ def seed_db():
         User(
             name='Sonny Davidson',
             email='sonny@EPLAPP.com',
-            password=bcrypt.generate_password_hash('benny').decode('utf-8')
+            password=bcrypt.generate_password_hash('benny').decode('utf-8'),
+            is_user=True
         )
     ]
 
@@ -166,6 +167,7 @@ def seed_db():
             number = '7',
             goals = '5',
             assists = '5',
+            cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
         ),
@@ -176,6 +178,7 @@ def seed_db():
             number = '8',
             goals = '3',
             assists = '6',
+            cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
         ),
@@ -195,6 +198,8 @@ def seed_db():
             team = 'Arsenal',
             name = 'Aaron Ramsdale',
             number = '7',
+            goals = '0',
+            assists = '0',
             cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
@@ -206,6 +211,7 @@ def seed_db():
             number = '9',
             goals = '18',
             assists = '3',
+            cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
         ),
@@ -216,6 +222,7 @@ def seed_db():
             number = '10',
             goals = '3',
             assists = '9',
+            cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
         ),
@@ -224,6 +231,8 @@ def seed_db():
             team = 'Man City',
             name = 'Ruben Dias',
             number = '3',
+            goals = '0',
+            assists = '0',
             cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
@@ -233,6 +242,8 @@ def seed_db():
             team = 'Man City',
             name = 'Ederson',
             number = '1',
+            goals = '0',
+            assists = '0',
             cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
