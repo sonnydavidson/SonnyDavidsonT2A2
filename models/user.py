@@ -7,9 +7,9 @@ class User(db.Model):
     name = db.Column(db.String)
     favourite_team = db.Column(db.String(50))
     email = db.Column(db.String, nullable=False, unique=True)
+    phone_number = db.Column(db.Integer, nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
-    is_user = db.Column(db.Boolean, default=True)
 
 class UserSchema(ma.Schema):
     class Meta:
