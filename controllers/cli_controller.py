@@ -239,8 +239,6 @@ def seed_db():
         ),
     ]
 
-
-
     db.session.add_all(table)
     db.session.add_all(users)
     db.session.add_all(players)

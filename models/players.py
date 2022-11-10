@@ -4,7 +4,7 @@ class Player(db.Model):
     __tablename__ = 'players'
 
     position = db.Column(db.String, nullable=False)
-    team = db.Column(db.String(50), nullable=False)
+    team = db.Column(db.String(50), foreign_key=True, nullable=False)
     name = db.Column(db.String(50), primary_key=True)
     number = db.Column(db.Integer, nullable=False)
     goals = db.Column(db.Integer)
