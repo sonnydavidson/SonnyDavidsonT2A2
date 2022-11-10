@@ -13,23 +13,12 @@ def all_players():
     players = db.session.scalars(stmt)
     return PlayerSchema(many=True).dump(players)
 
-# @players_bp.route('/<string:name>/')
-# # @jwt_required()
-# def one_player(name):
-#     # return 'all_playerss route'
-#     # if not authorize():
-#     #     return {'error': 'You must have an account'}, 401
-
-#     stmt = db.select(Player).filter_by(name=name)
-#     player = db.session.scalar(stmt)
-#     return PlayerSchema.dump(player)
-
 @players_bp.route('most.goals')
 def top_scorers():
 
     stmt = db.select(Player).order_by(Player.goals.desc())
     players = db.session.scalars(stmt)
-    return PlayerSchema(many=True).dump(players) 
+    return PlayerSchema(many=True).dump(players)
 
 @players_bp.route('most.assists')
 def most_assists():
@@ -51,7 +40,7 @@ def most_cleansheets():
 
 # Editing players in the database
 
-@players_bp.route('/<int:position>/', methods=['DELETE'])
+@players_bp.route('/<int:number>/', methods=['DELETE'])
 @jwt_required()
 def delete_one_player(player):
     authorize()
@@ -66,25 +55,24 @@ def delete_one_player(player):
         return {'error': f'player not found with position {player}'}, 404
 
 
-@players_bp.route('/<int:position>/', methods=['PUT', 'PATCH'])
+@players_bp.route('/<int:number>/', methods=['PUT', 'PATCH'])
 @jwt_required()
 def update_one_team(team):
     # Update one players information
-    stmt = db.select(Table).filter_by(team=team)
-    table = db.session.scalar(stmt)
-    if table:
-        table.position = request.json.get('position') or table.position
-        table.team = request.json.get('team') or table.team
-        table.MP = request.json.get('MP') or table.MP
-        table.W = request.json.get('W') or table.W
-        table.D = request.json.get('D') or table.D
-        table.L = request.json.get('L') or table.L
-        table.Pts = request.json.get('Pts') or table.Pts
-        table.GF = request.json.get('GF') or table.GF
-        table.GA = request.json.get('GA') or table.GA
-        table.GD = request.json.get('GD') or table.GD
+    stmt = db.select(Player).filter_by(team=team)
+    player = db.session.scalar(stmt)
+    if player:
+        player.position = request.json.get('position') or player.position
+        player.team = request.json.get('team') or player.team
+        player.name = request.json.get('name') or player.name
+        player.number = request.json.get('number') or player.number
+        player.goals = request.json.get('goals') or player.goals
+        player.assists = request.json.get('assists') or player.assists
+        player.cleansheets = request.json.get('cleansheets') or player.cleansheets
+        player.form = request.json.get('form') or player.form
+        player.fitness = request.json.get('fitness') or player.fitness
         db.session.commit()
-        return TableSchema().dump(table)
+        return PlayerSchema().dump(player)
     else:
         return {'error': f'team not found {team}'}, 404
 

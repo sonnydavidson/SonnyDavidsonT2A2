@@ -14,6 +14,15 @@ def full_table():
     table = db.session.scalars(stmt)
     return TableSchema(many=True).dump(table)
 
+@table_bp.route('/<int:position>/')
+def get_one_team(position):
+    stmt = db.select(Table).filter_by(position=position)
+    table = db.session.scalar(stmt)
+    if table:
+        return TableSchema().dump(table)
+    else:
+        return {'error': f'Team not found in that position {table}'}, 404
+
 @table_bp.route('/<int:position>/', methods=['DELETE'])
 @jwt_required()
 def delete_one_team(team):
