@@ -35,6 +35,7 @@ def seed_db():
 
     table = [
         Table(
+            position = '1',
             team = 'Arsenal',
             MP = '13',
             W = '11',
@@ -46,6 +47,7 @@ def seed_db():
             GD = '20'
         ),
         Table(
+            position = '2',
             team = 'Man City',
             MP = '13',
             W = '10',
@@ -57,6 +59,7 @@ def seed_db():
             GD = '27'
         ),
         Table(
+            position = '3',
             team = 'Newcastle',
             MP = '14',
             W = '7',
@@ -68,6 +71,7 @@ def seed_db():
             GD = '17'
         ),
         Table(
+            position = '4',
             team = 'Tottenham',
             MP = '14',
             W = '8',
@@ -79,6 +83,7 @@ def seed_db():
             GD = '9'
         ),
         Table(
+            position = '5',
             team = 'Man United',
             MP = '13',
             W = '7',
@@ -90,6 +95,7 @@ def seed_db():
             GD = '-1'
         ),
         Table(
+            position = '6',
             team = 'Brighton',
             MP = '13',
             W = '6',
@@ -101,6 +107,7 @@ def seed_db():
             GD = '5'
         ),
         Table(
+            position = '7',
             team = 'Chelsea',
             MP = '13',
             W = '6',
@@ -112,6 +119,7 @@ def seed_db():
             GD = '1'
         ),
         Table(
+            position = '8',
             team = 'Liverpool',
             MP = '13',
             W = '5',
@@ -123,6 +131,7 @@ def seed_db():
             GD = '9'
         ),
         Table(
+            position = '9',
             team = 'Fulham',
             MP = '14',
             W = '5',
@@ -134,6 +143,7 @@ def seed_db():
             GD = '-1'
         ),
         Table(
+            position = '10',
             team = 'Crystal Palace',
             MP = '13',
             W = '5',

@@ -17,7 +17,7 @@ def full_table():
     table = db.session.scalars(stmt)
     return TableSchema(many=True).dump(table)
 
-@table_bp.route('/<int:team>/', methods=['DELETE'])
+@table_bp.route('/<int:position>/', methods=['DELETE'])
 @jwt_required()
 def delete_one_team(team):
     authorize()
@@ -32,12 +32,13 @@ def delete_one_team(team):
         return {'error': f'Team not found with id {id}'}, 404
 
 
-@table_bp.route('/<int:team>/', methods=['PUT', 'PATCH'])
+@table_bp.route('/<int:position>/', methods=['PUT', 'PATCH'])
 @jwt_required()
 def update_one_team(team):
     stmt = db.select(Table).filter_by(team=team)
     table = db.session.scalar(stmt)
     if table:
+        table.position = request.json.get('position') or table.position
         table.team = request.json.get('team') or table.team
         table.MP = request.json.get('MP') or table.MP
         table.W = request.json.get('W') or table.W
@@ -58,6 +59,7 @@ def update_one_team(team):
 def create_team():
         # Create a new tema instance
         table = Table(
+            position = request.json['position'],
             team = request.json['team'],
             MP = request.json['MP'],
             W = request.json['W'],
