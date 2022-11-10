@@ -7,13 +7,12 @@ from flask_jwt_extended import jwt_required
 table_bp = Blueprint('table', __name__,url_prefix='/table')
 
 @table_bp.route('/')
-# @jwt_required()
 def full_table():
-
+# View the full table
     stmt = db.select(Table).order_by(Table.Pts.desc())
     table = db.session.scalars(stmt)
     return TableSchema(many=True).dump(table)
-
+# View one teaam
 @table_bp.route('/<int:position>/')
 def get_one_team(position):
     stmt = db.select(Table).filter_by(position=position)
@@ -23,25 +22,29 @@ def get_one_team(position):
     else:
         return {'error': f'Team not found in that position {table}'}, 404
 
+
+#Editing teams with in the database
 @table_bp.route('/<int:position>/', methods=['DELETE'])
 @jwt_required()
-def delete_one_team(team):
+# Delete a team
+def delete_one_team(position):
     authorize()
 
-    stmt = db.select(Table).filter_by(team=team)
+    stmt = db.select(Table).filter_by(position=position)
     table = db.session.scalar(stmt)
     if table:
-        db.session.delete(team)
+        db.session.delete(position)
         db.session.commit()
-        return {'message': f'Table "{table.team}" deleted successfully'}
+        return {'message': f'Table "{table.position}" deleted successfully'}
     else:
-        return {'error': f'Team not found with position {id}'}, 404
+        return {'error': f'Team not found with position {position}'}, 404
 
 
 @table_bp.route('/<int:position>/', methods=['PUT', 'PATCH'])
 @jwt_required()
-def update_one_team(team):
-    stmt = db.select(Table).filter_by(team=team)
+def update_one_team(position):
+    # Update team information
+    stmt = db.select(Table).filter_by(position=position)
     table = db.session.scalar(stmt)
     if table:
         table.position = request.json.get('position') or table.position

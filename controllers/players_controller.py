@@ -8,34 +8,41 @@ players_bp = Blueprint('players', __name__,url_prefix='/players')
 
 @players_bp.route('/')
 def all_players():
-
+# View all players
     stmt = db.select(Player).order_by(Player.team.desc())
     players = db.session.scalars(stmt)
     return PlayerSchema(many=True).dump(players)
 
 @players_bp.route('most.goals')
 def top_scorers():
-
+# View top goal scorers
     stmt = db.select(Player).order_by(Player.goals.desc())
     players = db.session.scalars(stmt)
     return PlayerSchema(many=True).dump(players)
 
 @players_bp.route('most.assists')
 def most_assists():
-
+# View players with the most assists
     stmt = db.select(Player).order_by(Player.assists.desc())
     players = db.session.scalars(stmt)
     return PlayerSchema(many=True).dump(players)
 
 @players_bp.route('most.cleansheets')
 def most_cleansheets():
-
+# View players with the most cleansheets
     stmt = db.select(Player).order_by(Player.cleansheets.desc())
     players = db.session.scalars(stmt)
     return PlayerSchema(many=True).dump(players)
 
-
-
+@players_bp.route('/<int:number>/')
+def get_one_team(number):
+# find one player
+    stmt = db.select(Player).filter_by(number=number)
+    player = db.session.scalar(stmt)
+    if player:
+        return PlayerSchema().dump(player)
+    else:
+        return {'error': f'could not find this player{number}'}, 404
 #please finish
 
 # Editing players in the database
