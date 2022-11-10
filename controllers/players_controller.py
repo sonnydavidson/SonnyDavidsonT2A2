@@ -7,11 +7,7 @@ from flask_jwt_extended import jwt_required
 players_bp = Blueprint('players', __name__,url_prefix='/players')
 
 @players_bp.route('/')
-# @jwt_required()
 def all_players():
-    # return 'all_players route'
-    # if not authorize():
-    #     return {'error': 'You must have an account'}, 401
 
     stmt = db.select(Player).order_by(Player.team.desc())
     players = db.session.scalars(stmt)
@@ -29,33 +25,21 @@ def all_players():
 #     return PlayerSchema.dump(player)
 
 @players_bp.route('most.goals')
-# @jwt_required()
 def top_scorers():
-    # return 'top_scorers route'
-    # if not authorize():
-    #     return {'error': 'You must have an account'}, 401
 
     stmt = db.select(Player).order_by(Player.goals.desc())
     players = db.session.scalars(stmt)
     return PlayerSchema(many=True).dump(players) 
 
 @players_bp.route('most.assists')
-# @jwt_required()
 def most_assists():
-    # return 'most_assists route'
-    # if not authorize():
-    #     return {'error': 'You must have an account'}, 401
 
     stmt = db.select(Player).order_by(Player.assists.desc())
     players = db.session.scalars(stmt)
     return PlayerSchema(many=True).dump(players)
 
 @players_bp.route('most.cleansheets')
-# @jwt_required()
 def most_cleansheets():
-    # return 'most_assists route'
-    # if not authorize():
-    #     return {'error': 'You must have an account'}, 401
 
     stmt = db.select(Player).order_by(Player.cleansheets.desc())
     players = db.session.scalars(stmt)
@@ -67,7 +51,7 @@ def most_cleansheets():
 
 # Editing players in the database
 
-@players_bp.route('/<int:position>/', methods=['DELETE']) 
+@players_bp.route('/<int:position>/', methods=['DELETE'])
 @jwt_required()
 def delete_one_player(player):
     authorize()
@@ -85,6 +69,7 @@ def delete_one_player(player):
 @players_bp.route('/<int:position>/', methods=['PUT', 'PATCH'])
 @jwt_required()
 def update_one_team(team):
+    # Update one players information
     stmt = db.select(Table).filter_by(team=team)
     table = db.session.scalar(stmt)
     if table:
@@ -107,18 +92,17 @@ def update_one_team(team):
 @players_bp.route('/', methods=['POST'])
 @jwt_required()
 def add_player():
-        # Create a new tema instance
+        # Create a new player
         player = Player(
             position = request.json['position'],
             team = request.json['team'],
-            MP = request.json['MP'],
-            W = request.json['W'],
-            D = request.json['D'],
-            L = request.json['L'],
-            Pts = request.json['Pts'],
-            GF = request.json['GF'],
-            GA = request.json['GA'],
-            GD = request.json['GD']
+            name = request.json['name'],
+            number = request.json['number'],
+            goals = request.json['goals'],
+            assists = request.json['assists'],
+            cleansheets = request.json['cleansheets'],
+            form = request.json['form'],
+            fitness = request.json['fitness']
         )
         # Add and commit team to DB
         db.session.add(player)

@@ -9,9 +9,6 @@ table_bp = Blueprint('table', __name__,url_prefix='/table')
 @table_bp.route('/')
 # @jwt_required()
 def full_table():
-    # return 'all_cards route'
-    # if not authorize():
-    #     return {'error': 'You must have an account'}, 401
 
     stmt = db.select(Table).order_by(Table.Pts.desc())
     table = db.session.scalars(stmt)
