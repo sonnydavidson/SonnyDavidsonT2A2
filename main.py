@@ -1,5 +1,6 @@
 from flask import Flask
 from init import db, ma, bcrypt, jwt
+from controllers.players_controller import players_bp
 from controllers.table_controller import table_bp
 from controllers.auth_controller import auth_bp
 from controllers.cli_controller import db_commands
@@ -29,6 +30,7 @@ def create_app():
     app.register_blueprint(table_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(db_commands)
+    app.register_blueprint(players_bp)
 
 
     return app

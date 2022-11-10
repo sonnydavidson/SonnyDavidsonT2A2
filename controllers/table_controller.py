@@ -13,7 +13,7 @@ def full_table():
     # if not authorize():
     #     return {'error': 'You must have an account'}, 401
 
-    stmt = db.select(Table).order_by(Table.points.desc())
+    stmt = db.select(Table).order_by(Table.Pts.desc())
     table = db.session.scalars(stmt)
     return TableSchema(many=True).dump(table)
 
@@ -29,7 +29,7 @@ def delete_one_team(team):
         db.session.commit()
         return {'message': f'Table "{table.team}" deleted successfully'}
     else:
-        return {'error': f'Team not found with id {id}'}, 404
+        return {'error': f'Team not found with position {id}'}, 404
 
 
 @table_bp.route('/<int:position>/', methods=['PUT', 'PATCH'])

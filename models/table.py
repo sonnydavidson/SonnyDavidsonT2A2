@@ -15,6 +15,6 @@ class Table(db.Model):
     GD = db.Column(db.Integer, nullable=False)
 
 class TableSchema(ma.Schema):
-    class  Meta:
+    class Meta:
         fields = ('position','team', 'MP', 'W', 'D', 'L', 'Pts', 'GF', 'GA', 'GD')
         ordered = True

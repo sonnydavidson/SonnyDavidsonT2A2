@@ -2,12 +2,13 @@ from flask import Blueprint
 from init import db, bcrypt
 from models.table import Table
 from models.user import User
+from models.players import Player
 
 
 db_commands = Blueprint('db', __name__)
 
 
-# Define a custom CLI (terminal) command
+# Define a custom CLI 
 @db_commands.cli.command('create')
 def create_db():
     db.create_all()
@@ -157,7 +158,91 @@ def seed_db():
     ]
 
 
+    players = [
+        Player(
+            position = 'RW',
+            team = 'Arsenal',
+            name = 'Bukayo Saka',
+            number = '7',
+            goals = '5',
+            assists = '5',
+            form = 'good',
+            fitness = 'match fit'
+        ),
+        Player(
+            position = 'CAM',
+            team = 'Arsenal',
+            name = 'Martin Odegaard',
+            number = '8',
+            goals = '3',
+            assists = '6',
+            form = 'good',
+            fitness = 'match fit'
+        ),
+        Player(
+            position = 'CB',
+            team = 'Arsenal',
+            name = 'William Saliba',
+            number = '12',
+            goals = '1',
+            assists = '1',
+            cleansheets = '6',
+            form = 'good',
+            fitness = 'match fit'
+        ),
+        Player(
+            position = 'GK',
+            team = 'Arsenal',
+            name = 'Aaron Ramsdale',
+            number = '7',
+            cleansheets = '6',
+            form = 'good',
+            fitness = 'match fit'
+        ),
+        Player(
+            position = 'ST',
+            team = 'Man City',
+            name = 'Erling Haaland',
+            number = '9',
+            goals = '18',
+            assists = '3',
+            form = 'good',
+            fitness = 'match fit'
+        ),
+        Player(
+            position = 'CAM',
+            team = 'Man City',
+            name = 'Kevin De Bruyne',
+            number = '10',
+            goals = '3',
+            assists = '9',
+            form = 'good',
+            fitness = 'match fit'
+        ),
+        Player(
+            position = 'CB',
+            team = 'Man City',
+            name = 'Ruben Dias',
+            number = '3',
+            cleansheets = '6',
+            form = 'good',
+            fitness = 'match fit'
+        ),
+        Player(
+            position = 'GK',
+            team = 'Man City',
+            name = 'Ederson',
+            number = '1',
+            cleansheets = '6',
+            form = 'good',
+            fitness = 'match fit'
+        ),
+    ]
+
+
+
     db.session.add_all(table)
     db.session.add_all(users)
+    db.session.add_all(players)
     db.session.commit()
     print('Tables seeded')
