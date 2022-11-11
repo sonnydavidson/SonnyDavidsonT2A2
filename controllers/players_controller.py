@@ -34,15 +34,15 @@ def most_cleansheets():
     players = db.session.scalars(stmt)
     return PlayerSchema(many=True).dump(players)
 
-@players_bp.route('/<int:number>/')
-def get_one_team(number):
+@players_bp.route('/<string:name>/')
+def get_one_team(name):
 # find one player
-    stmt = db.select(Player).filter_by(number=number)
+    stmt = db.select(Player).filter_by(name=name)
     player = db.session.scalar(stmt)
     if player:
         return PlayerSchema().dump(player)
     else:
-        return {'error': f'could not find this player{number}'}, 404
+        return {'error': f'could not find this player{name}'}, 404
 #please finish
 
 # Editing players in the database

@@ -15,8 +15,10 @@ def auth_register():
         # Create a new User model instance from the user_info
         user = User(
             email = request.json['email'],
+            phone_number = request.json['phone_number'],
             password = bcrypt.generate_password_hash(request.json['password']).decode('utf8'),
-            name = request.json.get('name')
+            name = request.json.get('name'),
+            favourite_team = request.json.get('favourite_team')
         )
         # Add and commit user to DB
         db.session.add(user)
@@ -24,7 +26,7 @@ def auth_register():
         # Respond to client
         return UserSchema(exclude=['password']).dump(user), 201
     except IntegrityError:
-        return {'error': 'Email address already in use'}, 409
+        return {'error': 'Email address or phone number is already in use'}, 409
 
 
 @auth_bp.route('/login/', methods=['POST'])
