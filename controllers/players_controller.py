@@ -62,7 +62,7 @@ def delete_one_player(name):
         return {'error': f'player not found with position {name}'}, 404
 
 
-@players_bp.route('/<int:number>/', methods=['PUT', 'PATCH'])
+@players_bp.route('/<string:name>/', methods=['PUT', 'PATCH'])
 @jwt_required()
 def update_one_player(name):
     # Update one players information
