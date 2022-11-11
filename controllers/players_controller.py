@@ -47,26 +47,26 @@ def get_one_team(name):
 
 # Editing players in the database
 
-@players_bp.route('/<int:number>/', methods=['DELETE'])
+@players_bp.route('/<string:name>/', methods=['DELETE'])
 @jwt_required()
-def delete_one_player(player):
+def delete_one_player(name):
     authorize()
 
-    stmt = db.select(Player).filter_by(player=player)
+    stmt = db.select(Player).filter_by(name=name)
     table = db.session.scalar(stmt)
     if table:
-        db.session.delete(player)
+        db.session.delete(name)
         db.session.commit()
-        return {'message': f'Table "{player.name}" deleted successfully'}
+        return {'message': f'Table "{name}" deleted successfully'}
     else:
-        return {'error': f'player not found with position {player}'}, 404
+        return {'error': f'player not found with position {name}'}, 404
 
 
 @players_bp.route('/<int:number>/', methods=['PUT', 'PATCH'])
 @jwt_required()
-def update_one_team(team):
+def update_one_player(name):
     # Update one players information
-    stmt = db.select(Player).filter_by(team=team)
+    stmt = db.select(Player).filter_by(name=name)
     player = db.session.scalar(stmt)
     if player:
         player.position = request.json.get('position') or player.position
@@ -81,7 +81,7 @@ def update_one_team(team):
         db.session.commit()
         return PlayerSchema().dump(player)
     else:
-        return {'error': f'team not found {team}'}, 404
+        return {'error': f'team not found {name}'}, 404
 
 
 @players_bp.route('/', methods=['POST'])
