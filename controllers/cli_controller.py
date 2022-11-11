@@ -31,7 +31,6 @@ def seed_db():
             name='Sonny Davidson',
             email='sonny@EPLAPP.com',
             password=bcrypt.generate_password_hash('benny').decode('utf-8'),
-            is_user=True
         )
     ]
 

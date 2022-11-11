@@ -15,5 +15,6 @@ class Player(db.Model):
 
 class PlayerSchema(ma.Schema):
     class Meta:
-        fields = ('position','team', 'name','number', 'goals', 'assists', 'cleansheet', 'form', 'fitness', )
+        fields = ('position','team', 'name','number', 'goals', 'assists', 'cleansheet', 'form', 'fitness' )
         ordered = True
+
