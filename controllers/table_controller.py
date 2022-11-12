@@ -13,38 +13,38 @@ def full_table():
     table = db.session.scalars(stmt)
     return TableSchema(many=True).dump(table)
 # View one teaam
-@table_bp.route('/<int:position>/')
-def get_one_team(position):
-    stmt = db.select(Table).filter_by(position=position)
+@table_bp.route('/<string:team>/')
+def get_one_team(team):
+    stmt = db.select(Table).filter_by(team=team)
     table = db.session.scalar(stmt)
     if table:
         return TableSchema().dump(table)
     else:
-        return {'error': f'Team not found in that position {table}'}, 404
+        return {'error': f'Team not found with the name  {team}'}, 404
 
 
 #Editing teams with in the database
-@table_bp.route('/<int:position>/', methods=['DELETE'])
+@table_bp.route('/<string:team>/', methods=['DELETE'])
 @jwt_required()
 # Delete a team
-def delete_one_team(position):
+def delete_one_team(team):
     authorize()
 
-    stmt = db.select(Table).filter_by(position=position)
+    stmt = db.select(Table).filter_by(team=team)
     table = db.session.scalar(stmt)
     if table:
-        db.session.delete(position)
+        db.session.delete(team)
         db.session.commit()
-        return {'message': f'Table "{table.position}" deleted successfully'}
+        return {'message': f'Table "{table.team}" deleted successfully'}
     else:
-        return {'error': f'Team not found with position {position}'}, 404
+        return {'error': f'Team not found with position {team}'}, 404
 
 
-@table_bp.route('/<int:position>/', methods=['PUT', 'PATCH'])
+@table_bp.route('/<string:team>/', methods=['PUT', 'PATCH'])
 @jwt_required()
-def update_one_team(position):
+def update_one_team(team):
     # Update team information
-    stmt = db.select(Table).filter_by(position=position)
+    stmt = db.select(Table).filter_by(team=team)
     table = db.session.scalar(stmt)
     if table:
         table.position = request.json.get('position') or table.position
