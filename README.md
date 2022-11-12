@@ -22,28 +22,28 @@ The key functionalities of an ORM ( Object-relational-mapper ) is that it alows 
 
 ## R5 - Document all endpoints for your API
 ### Register
-HTTP request verb: POST
-Required data if applicable: Name, email, phone number, favourite team and password
-Expected response data: UserSchema
-Authentication methods if applicable: n/a
+- HTTP request verb: POST
+- Required data if applicable: Name, email, phone number, favourite team and password
+- Expected response data: UserSchema
+- Authentication methods if applicable: n/a
 
 ### Login
-HTTP request verb: POST
-Required data where applicable: The email address and password in JSON format
-Expected response data: JWT Token in JSON format
-Authentication methods where applicable: username and hashed password is checked with the database
+- HTTP request verb: POST
+- Required data where applicable: The email address and password in JSON format
+- Expected response data: JWT Token in JSON format
+- Authentication methods where applicable: username and hashed password is checked with the database
 
 ### Full table 
-HTTP request verb: get
-Required data where applicable:
-Expected response data: The full table in oder from highest Pts to lowest
-Authentication methods where applicable: 
+- HTTP request verb: get
+- Required data where applicable:
+- Expected response data: The full table in oder from highest Pts to lowest
+- Authentication methods where applicable: 
 
 ### Delete a team 
-HTTP request verb: Delete
-Required data where applicable: The teams name you want to delete
-Expected response data: A message confirming which team has been deleted 
-Authentication methods where applicable: JWT Token and admin role
+- HTTP request verb: Delete
+- Required data where applicable: The teams name you want to delete
+- Expected response data: A message confirming which team has been deleted 
+- Authentication methods where applicable: JWT Token and admin role
 
 ### Update a team 
 - HTTP request verb: PUT / PATCH
@@ -51,6 +51,35 @@ Authentication methods where applicable: JWT Token and admin role
 - Expected response data: A message confirming which team has been deleted 
 - Authentication methods where applicable: JWT Token and admin role
 
+### Add a new team 
+- HTTP request verb: POST
+- Required data where applicable: ALL the data required in the "Table" table
+- Expected response data: 
+- Authentication methods where applicable: JWT Token and admin role
+
+### Full list of players 
+- HTTP request verb: GET
+- Required data where applicable: 
+- Expected response data: The full list of players in the database  
+- Authentication methods:
+
+### Full list of players in order of most to least goals 
+- HTTP request verb: GET
+- Required data where applicable: 
+- Expected response data: The full list of players in the database from most to least goals   
+- Authentication methods:
+
+### Full list of players in order of most to least assists 
+- HTTP request verb: GET
+- Required data where applicable: 
+- Expected response data: The full list of players in the database from most to least assists   
+- Authentication methods:
+
+### Full list of players in order of most to least cleansheets 
+- HTTP request verb: GET
+- Required data where applicable: 
+- Expected response data: The full list of players in the database from most to least cleansheets   
+- Authentication methods:
 
 
 
