@@ -134,3 +134,7 @@ With in this projects I have used then MVC model. this has allowed me to structu
 The relationship in this app is the Table model which has a many-to-one relationship with the Players model. This means that the table can have many teams, but a player can only have one team. The Table model has a table.team foreign key which links it to the players model.
 
 ## R10 - Describe the way tasks are allocated and tracked in your project
+I tracked tasks for my project by making a board in trello. Using this board i create a To do, Doing and Done tabs. With those tabs I create each task i need to do and then created a check list with in each task to make sure each details was completed. 
+
+Link to trello board 
+- https://trello.com/invite/b/8zeso93s/ATTIc1d351b564010451f2ef06bec36ae356819A422F/sonnydavidsont2a2
