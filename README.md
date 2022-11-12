@@ -53,7 +53,7 @@ The key functionalities of an ORM ( Object-relational-mapper ) is that it alows 
 
 ### Add a new team 
 - HTTP request verb: POST
-- Required data where applicable: ALL the data required in the "Table" table
+- Required data where applicable: position, team, MP, W, D, L, Pts, GF, GA and GD
 - Expected response data: 
 - Authentication methods where applicable: JWT Token and admin role
 
@@ -81,6 +81,29 @@ The key functionalities of an ORM ( Object-relational-mapper ) is that it alows 
 - Expected response data: The full list of players in the database from most to least cleansheets   
 - Authentication methods:
 
+### Get the stats of the player you searched
+- HTTP request verb: GET
+- Required data where applicable: The players name 
+- Expected response data: The full stats of the searched player  
+- Authentication methods:
+
+### Delete a player 
+- HTTP request verb: DELETE
+- Required data where applicable: The players name 
+- Expected response data: A message confirming the player you deleted 
+- Authentication methods: JWT Token and admin role
+
+### Update a player 
+- HTTP request verb: PUT/PATCH
+- Required data where applicable: The players name 
+- Expected response data:
+- Authentication methods: JWT Token and admin role
+
+### Adding a new player 
+- HTTP request verb: POST
+- Required data where applicable: position, team, name, number, goals, assists, cleansheets, form and fitness 
+- Expected response data: 
+- Authentication methods: JWT Token and admin role
 
 
 
