@@ -131,7 +131,7 @@ This application does not use any third party services. All that is used is flas
 With in this projects I have used then MVC model. this has allowed me to structure my application in a very simple and effcient manner. Each of the models within this 
 
 ## R9 - Discuss the database relations to be implemented in your application
-The relationship in this app is the Table model which has a one-to-one relationship with the Players model. This means that the table can have many teams, but a player can only have one team. The Table model has a players_players_team foreign key which links it to the players model.
+The relationship in this app is the Table model which has a many-to-one relationship with the Players model. This means that the table can have many teams, but a player can only have one team. The Table model has a players.players_team foreign key which links it to the players model.
 
 ## R10 - Describe the way tasks are allocated and tracked in your project
 
