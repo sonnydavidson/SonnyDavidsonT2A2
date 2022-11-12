@@ -25,6 +25,7 @@ they would have access to all possible data points involving each player.
 
 
 ## R7 - Detail any third party services that your app will use
+This application does not use any third party services 
 
 
 ## R8 - Describe your projects models in terms of the relationships they have with each other
