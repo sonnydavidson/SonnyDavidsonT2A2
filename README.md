@@ -2,12 +2,15 @@
 
 ## Postgresql instruction to set up DB
 - Create the DB
+
 CREATE DATABASE eplapp;
 
 - Create the dev user 
+
 CREATE USER eplapp_dev WITH PASSWORD 'benny';
 
 - Grant privileges
+
 GRANT ALL PRIVILEGES ON DATABASE eplapp TO eplapp_dev;
 
 ##	R1 - Identification of the problem you are trying to solve by building this particular app.
