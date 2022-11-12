@@ -34,6 +34,9 @@ def seed_db():
         )
     ]
 
+    db.session.add_all(users)
+    db.session.commit()
+
     table = [
         Table(
             position = '1',
@@ -157,7 +160,6 @@ def seed_db():
         ),
     ]
 
-
     players = [
         Player(
             position = 'RW',
@@ -169,10 +171,11 @@ def seed_db():
             cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
+            
         ),
         Player(
             position = 'CAM',
-            team = 'Arsenal',
+            team = 'Tottenham',
             name = 'Martin Odegaard',
             number = '8',
             goals = '3',
@@ -180,10 +183,12 @@ def seed_db():
             cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
+            
+            
         ),
         Player(
             position = 'CB',
-            team = 'Arsenal',
+            team = 'Newcastle',
             name = 'William Saliba',
             number = '12',
             goals = '1',
@@ -191,10 +196,11 @@ def seed_db():
             cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
+
         ),
         Player(
             position = 'GK',
-            team = 'Arsenal',
+            team = 'Man United',
             name = 'Aaron Ramsdale',
             number = '7',
             goals = '0',
@@ -202,6 +208,7 @@ def seed_db():
             cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
+
         ),
         Player(
             position = 'ST',
@@ -216,7 +223,7 @@ def seed_db():
         ),
         Player(
             position = 'CAM',
-            team = 'Man City',
+            team = 'Brighton',
             name = 'Kevin De Bruyne',
             number = '10',
             goals = '3',
@@ -227,7 +234,7 @@ def seed_db():
         ),
         Player(
             position = 'CB',
-            team = 'Man City',
+            team = 'Chelsea',
             name = 'Ruben Dias',
             number = '3',
             goals = '0',
@@ -235,10 +242,11 @@ def seed_db():
             cleansheets = '6',
             form = 'good',
             fitness = 'match fit'
+
         ),
         Player(
             position = 'GK',
-            team = 'Man City',
+            team = 'Liverpool',
             name = 'Ederson',
             number = '1',
             goals = '0',
@@ -247,10 +255,31 @@ def seed_db():
             form = 'good',
             fitness = 'match fit'
         ),
+        Player(
+            position = 'ST',
+            team = 'Fulham',
+            name = 'Mitrovic',
+            number = '9',
+            goals = '8',
+            assists = '0',
+            cleansheets = '6',
+            form = 'good',
+            fitness = 'match fit'
+        ),
+        Player(
+            position = 'LW',
+            team = 'Crystal Palace',
+            name = 'Zaha',
+            number = '9',
+            goals = '8',
+            assists = '0',
+            cleansheets = '6',
+            form = 'good',
+            fitness = 'match fit'
+        )
     ]
 
-    db.session.add_all(table)
-    db.session.add_all(users)
     db.session.add_all(players)
+    db.session.add_all(table)
     db.session.commit()
     print('Tables seeded')
