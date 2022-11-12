@@ -21,6 +21,38 @@ The key functionalities of an ORM ( Object-relational-mapper ) is that it alows 
 
 
 ## R5 - Document all endpoints for your API
+### Register
+HTTP request verb: POST
+Required data if applicable: Name, email, phone number, favourite team and password
+Expected response data: UserSchema
+Authentication methods if applicable: n/a
+
+### Login
+HTTP request verb: POST
+Required data where applicable: The email address and password in JSON format
+Expected response data: JWT Token in JSON format
+Authentication methods where applicable: username and hashed password is checked with the database
+
+### Full table 
+HTTP request verb: get
+Required data where applicable:
+Expected response data: The full table in oder from highest Pts to lowest
+Authentication methods where applicable: 
+
+### Delete a team 
+HTTP request verb: Delete
+Required data where applicable: The teams name you want to delete
+Expected response data: A message confirming which team has been deleted 
+Authentication methods where applicable: JWT Token and admin role
+
+### Update a team 
+HTTP request verb: PUT / PATCH
+Required data where applicable: The teams name you want to delete
+Expected response data: A message confirming which team has been deleted 
+Authentication methods where applicable: JWT Token and admin role
+
+
+
 
 
 ## R6 - An ERD for your app
