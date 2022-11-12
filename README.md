@@ -16,6 +16,7 @@ they would have access to all possible data points involving each player.
 
 
 ## R4 - Identify and discuss the key functionalities and benefits of an ORM
+The key functionalities of an ORM ( Object-relational-mapper ) is that it alows you to write queries using the object-oriented paradigm of your preferred programming language. The benefits of using an ORM are you get to write in the language you are already using, they allow you to connect to the database server, they can help you generate querys to use on your database and they help with fetching the data and serializing it if necessary.
 
 
 ## R5 - Document all endpoints for your API
