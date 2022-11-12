@@ -12,6 +12,26 @@ coaches track the performance of players and other teams. This would be extremel
 performance reviews. Thus this application would make the jobs of scouts and coaches a lot easier and they would also become efficient because 
 they would have access to all possible data points involving each player.
 
-## R3 - 
+## R3 - Why have you chosen this database system. What are the drawbacks compared to others?
 
+
+## R4 - Identify and discuss the key functionalities and benefits of an ORM
+
+
+## R5 - Document all endpoints for your API
+
+
+## R6 - An ERD for your app
+
+
+## R7 - Detail any third party services that your app will use
+
+
+## R8 - Describe your projects models in terms of the relationships they have with each other
+
+
+## R9 - Discuss the database relations to be implemented in your application
+
+
+## R10 - Describe the way tasks are allocated and tracked in your project
 
