@@ -13,7 +13,8 @@ performance reviews. Thus this application would make the jobs of scouts and coa
 they would have access to all possible data points involving each player.
 
 ## R3 - Why have you chosen this database system. What are the drawbacks compared to others?
-
+The databse systems I have chosen to use for this application is SQL. One of the disadvantages to SQL is that it uses a lot of processing power and can become bogged down quite easily. It also doesnt handle queries in high volume and also does not handle large amounts of data very well opposed to some of
+the other databse syetms avaliable.
 
 ## R4 - Identify and discuss the key functionalities and benefits of an ORM
 The key functionalities of an ORM ( Object-relational-mapper ) is that it alows you to write queries using the object-oriented paradigm of your preferred programming language. The benefits of using an ORM are you get to write in the language you are already using, they allow you to connect to the database server, they can help you generate querys to use on your database and they help with fetching the data and serializing it if necessary.
