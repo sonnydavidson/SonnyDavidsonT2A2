@@ -46,10 +46,10 @@ Expected response data: A message confirming which team has been deleted
 Authentication methods where applicable: JWT Token and admin role
 
 ### Update a team 
-HTTP request verb: PUT / PATCH
-Required data where applicable: The teams name you want to delete
-Expected response data: A message confirming which team has been deleted 
-Authentication methods where applicable: JWT Token and admin role
+- HTTP request verb: PUT / PATCH
+- Required data where applicable: The teams name you want to delete
+- Expected response data: A message confirming which team has been deleted 
+- Authentication methods where applicable: JWT Token and admin role
 
 
 
