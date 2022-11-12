@@ -25,7 +25,7 @@ they would have access to all possible data points involving each player.
 
 
 ## R7 - Detail any third party services that your app will use
-This application does not use any third party services 
+This application does not use any third party services. All that is used is flask some other imports to make everything run smoothly.
 
 
 ## R8 - Describe your projects models in terms of the relationships they have with each other
