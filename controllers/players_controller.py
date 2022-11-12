@@ -43,7 +43,6 @@ def get_one_team(name):
         return PlayerSchema().dump(player)
     else:
         return {'error': f'could not find this player{name}'}, 404
-#please finish
 
 # Editing players in the database
 
