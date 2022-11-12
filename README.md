@@ -31,7 +31,7 @@ This application does not use any third party services. All that is used is flas
 
 
 ## R8 - Describe your projects models in terms of the relationships they have with each other
-
+With in this projects I have used then MVC model. this has allowed me to structure my application in a very simple and effcient manner. Each of the models within this 
 
 ## R9 - Discuss the database relations to be implemented in your application
 
