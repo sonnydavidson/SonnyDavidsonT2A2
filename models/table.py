@@ -4,7 +4,7 @@ class Table(db.Model):
     __tablename__ = 'table'
 
     position = db.Column(db.Integer, nullable=False)
-    team = db.Column(db.String(50), primary_key=True)
+    team = db.Column(db.String(50), db.ForeignKey('players'), primary_key=True)
     MP = db.Column(db.Integer, nullable=False)
     W = db.Column(db.Integer, nullable=False)
     D = db.Column(db.Integer, nullable=False)
@@ -13,6 +13,8 @@ class Table(db.Model):
     GF = db.Column(db.Integer, nullable=False)
     GA = db.Column(db.Integer, nullable=False)
     GD = db.Column(db.Integer, nullable=False)
+
+    playersteam = db.relationship('Player', back_populates='player_team')
 
 class TableSchema(ma.Schema):
     class Meta:
