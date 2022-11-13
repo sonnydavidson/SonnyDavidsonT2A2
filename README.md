@@ -137,12 +137,12 @@ This application does not use any third party services. All that is used is flas
 ### Table
 - The table model has position, team, pts, W, D, L, GF, GA and GD.
 
-- This model isnt in a relationship with any other table
+- The team column is a relationship with the player table.
 
 ### player
 - The player model has position, name, team, number, goals, assists, cleansheets, form and fitness.
 
-- This model isnt in a relationship with any other table
+- The team column is a relationship with the player table.
 
 ## R9 - Discuss the database relations to be implemented in your application
 The relationship in this app is the Table model which has a many-to-one relationship with the Players model. This means that the table can have many teams, but a player can only have one team. The Table model has a table.team foreign key which links it to the players model.
