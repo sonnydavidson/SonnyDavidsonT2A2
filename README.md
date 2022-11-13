@@ -121,7 +121,8 @@ The key functionalities of an ORM ( Object-relational-mapper ) is that it alows 
 
 
 ## R6 - An ERD for your app
-![ERD](desktop/ERD.jpg
+![ERD](https://user-images.githubusercontent.com/110369771/201511899-8a4b0a67-ec24-4cfc-ae28-e54c69425500.jpg)
+
 
 ## R7 - Detail any third party services that your app will use
 This application does not use any third party services. All that is used is flask some other imports to make everything run smoothly.
