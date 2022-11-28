@@ -136,14 +136,14 @@ This application does not use any third party services. All that is used is flas
 - The users favourite team is used in this model 
 - This also contains the users name 
 
-- This model does not have direct relation with other models. The only effect this model has on the others is that it dictates whihc users can  update the players and the table databases.
+This model does not have direct relation with other models. The only effect this model has on the others is that it dictates whihc users can  update the players and the table databases.
 
 ### Table
 - The table model contains the teams position in the table 
 - It also contains each teams name (PK) (FK)
 - This models contains all of the teams stats for the season as seen above in the ERD 
 
-- This models has a realtionship with the players model. Each player has a foreign key linking the team they pkay for with a team in the table model.
+This models has a realtionship with the players model. Each player has a foreign key linking the team they pkay for with a team in the table model.
 
 ### player
 - The player model contains each players name (PK)
@@ -151,7 +151,7 @@ This application does not use any third party services. All that is used is flas
 - The team the player plays for is also in this model (FK)
 - This model also contains all of the players stats for the season as seen in the ERD
 
-- This model has a relationship with the tbale model. This links each player with the team they play for. In the future i would like to add the feature where for each goal socred by a player this would also reflect a change in the relevent teams goals and goal difference.
+This model has a relationship with the tbale model. This links each player with the team they play for. In the future i would like to add the feature where for each goal socred by a player this would also reflect a change in the relevent teams goals and goal difference.
 
 ## R9 - Discuss the database relations to be implemented in your application
 The relationship in this app is the Table model which has a many-to-one relationship with the Players model. This means that the table can have many teams, but a player can only have one team. The Table model has a table.team foreign key which links it to the players model.
