@@ -35,7 +35,8 @@ As an ORM, SQLAlchemy offers the essential features. Because of the way SQLAlche
 
 
 ## R5 - Document all endpoints for your API
-### Register 127.0.0.1:9000/auth/register
+### Register 
+- URL: 127.0.0.1:9000/auth/register
 - HTTP request verb: POST
 - Required data if applicable: Name, email, phone number, favourite team and password
 - Expected response data: UserSchema
