@@ -37,10 +37,10 @@ new data being added and old data being updated. also with the way the code for 
 and seacrh parameters in the future to track more statistics.
 
 ## R2 -	Why is it a problem that needs solving ?
-The reason that i am solving this problem is because an application like this would hugly help scouts and 
+The reason that i am solving this problem is because an application like this would  help scouts and 
 coaches track the performance of players and other teams. This would be extremely useful when it comes to signing new players and also doing player
 performance reviews. Thus this application would make the jobs of scouts and coaches a lot easier and they would also become efficient because 
-they would have access to all possible data points involving each player.
+they would have access to all possible data points involving each player. This application woudl also be very useful for everyday fans, it would give them a deeper insight into each player and there performance over a season.
 
 ## R3 - Why have you chosen this database system. What are the drawbacks compared to others?
 This system uses PostgresSQL as the main RDMBS which is very similar syntaxly to other DBMS's like Microsoft SQL Server and MYSQL which allow develoeprs to use different programs and languages to create RESTful APIs. Additionally, PostgresSQL is also available open source allowing a variety of different developers such as myself to use for free regardless of the usuage of the software whether it be for personal or commerical. PostgresSQL is highly adaptable to the different OS systems people use around the world making it very seemless to use.
