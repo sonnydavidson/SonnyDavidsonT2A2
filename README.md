@@ -150,5 +150,13 @@ The relationship in this app is the Table model which has a many-to-one relation
 ## R10 - Describe the way tasks are allocated and tracked in your project
 I tracked tasks for my project by making a board in trello. Trello is an Online Management Software System was used to manage the projects development. In trello I created a board that broke down the requirements of each module in the api. 
 
+- Create models 
+- Finish the README.md file
+- create the main model
+- setup and link the database 
+- create and link git hub repo
+
+The modular tasks allow for sectioned completion of each module and then are tracked by the progress and debugging of each controllers functions related to the model and/or other task.
+
 Link to trello board 
 - https://trello.com/invite/b/8zeso93s/ATTIc1d351b564010451f2ef06bec36ae356819A422F/sonnydavidsont2a2
