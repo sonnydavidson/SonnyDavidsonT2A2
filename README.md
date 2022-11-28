@@ -183,7 +183,6 @@ This models has a realtionship with the players model. Each player has a foreign
 ### player
 - The player model contains each players name (PK)
 - It also contains the team they play for (FK)
-- The team the player plays for is also in this model (FK)
 - This model also contains all of the players stats for the season as seen in the ERD
 
 This model has a relationship with the tbale model. This links each player with the team they play for. In the future i would like to add the feature where for each goal socred by a player this would also reflect a change in the relevent teams goals and goal difference.
