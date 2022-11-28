@@ -188,7 +188,7 @@ This models has a realtionship with the players model. Each player has a foreign
 This model has a relationship with the tbale model. This links each player with the team they play for. In the future i would like to add the feature where for each goal socred by a player this would also reflect a change in the relevent teams goals and goal difference.
 
 ## R9 - Discuss the database relations to be implemented in your application
-The relationship in this app is the Table model which has a many-to-one relationship with the Players model. This means that the table can have many teams, but a player can only have one team. The Table model has a table.team foreign key which links it to the players model.
+The main relationship within this API is the Table model is in a one to many relationship with the player model. This means that many different players can play for the same team but a two teams cannot have the same player. In the "players" table each player has a team along side the rest of their personal statistics, this team is one of the team in the "Table" table.
 
 ## R10 - Describe the way tasks are allocated and tracked in your project
 I tracked tasks for my project by making a board in trello. Trello is an Online Management Software System was used to manage the projects development. In trello I created a board that broke down the requirements of each module in the api. 
