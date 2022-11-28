@@ -35,85 +35,98 @@ As an ORM, SQLAlchemy offers the essential features. Because of the way SQLAlche
 
 
 ## R5 - Document all endpoints for your API
-### Register
+### Register 127.0.0.1:9000/auth/register
 - HTTP request verb: POST
 - Required data if applicable: Name, email, phone number, favourite team and password
 - Expected response data: UserSchema
 - Authentication methods if applicable: n/a
 
 ### Login
+- URL: 127.0.0.1:9000/auth/login
 - HTTP request verb: POST
 - Required data where applicable: The email address and password in JSON format
 - Expected response data: JWT Token in JSON format
 - Authentication methods where applicable: username and hashed password is checked with the database
 
 ### Full table 
+- URL: 127.0.0.1:9000/table
 - HTTP request verb: get
 - Required data where applicable:
 - Expected response data: The full table in oder from highest Pts to lowest
 - Authentication methods where applicable: 
 
 ### Delete a team 
+- URL: 127.0.0.1:9000/table/(teamname)
 - HTTP request verb: Delete
 - Required data where applicable: The teams name you want to delete
 - Expected response data: A message confirming which team has been deleted 
 - Authentication methods where applicable: JWT Token and admin role
 
 ### Update a team 
+- URL: 127.0.0.1:9000/table/(teamname)
 - HTTP request verb: PUT / PATCH
 - Required data where applicable: The teams name you want to delete
 - Expected response data: A message confirming which team has been deleted 
 - Authentication methods where applicable: JWT Token and admin role
 
 ### Add a new team 
+- URL: 127.0.0.1:9000/table
 - HTTP request verb: POST
 - Required data where applicable: position, team, MP, W, D, L, Pts, GF, GA and GD
 - Expected response data: 
 - Authentication methods where applicable: JWT Token and admin role
 
 ### Full list of players 
+- URL: 127.0.0.1:9000/players
 - HTTP request verb: GET
 - Required data where applicable: 
 - Expected response data: The full list of players in the database  
 - Authentication methods:
 
 ### Full list of players in order of most to least goals 
+- URL: 127.0.0.1:9000/players.goals
 - HTTP request verb: GET
 - Required data where applicable: 
 - Expected response data: The full list of players in the database from most to least goals   
 - Authentication methods:
 
 ### Full list of players in order of most to least assists 
+- URL: 127.0.0.1:9000/players.assists
 - HTTP request verb: GET
 - Required data where applicable: 
 - Expected response data: The full list of players in the database from most to least assists   
 - Authentication methods:
 
 ### Full list of players in order of most to least cleansheets 
+- URL: 127.0.0.1:9000/players.cleansheets
 - HTTP request verb: GET
 - Required data where applicable: 
 - Expected response data: The full list of players in the database from most to least cleansheets   
 - Authentication methods:
 
 ### Get the stats of the player you searched
+- URL: 127.0.0.1:9000/players.(playername)
 - HTTP request verb: GET
 - Required data where applicable: The players name 
 - Expected response data: The full stats of the searched player  
 - Authentication methods:
 
 ### Delete a player 
+- URL: 127.0.0.1:9000/players.(playername)
 - HTTP request verb: DELETE
 - Required data where applicable: The players name 
 - Expected response data: A message confirming the player you deleted 
 - Authentication methods: JWT Token and admin role
 
 ### Update a player 
+- URL: 127.0.0.1:9000/players.(playername)
 - HTTP request verb: PUT/PATCH
 - Required data where applicable: The players name 
 - Expected response data:
 - Authentication methods: JWT Token and admin role
 
 ### Adding a new player 
+- URL: 127.0.0.1:9000/players
 - HTTP request verb: POST
 - Required data where applicable: position, team, name, number, goals, assists, cleansheets, form and fitness 
 - Expected response data: 
