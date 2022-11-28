@@ -136,7 +136,8 @@ As an ORM, SQLAlchemy offers the essential features. Because of the way SQLAlche
 
 
 ## R6 - An ERD for your app
-![ERD](https://user-images.githubusercontent.com/110369771/201511899-8a4b0a67-ec24-4cfc-ae28-e54c69425500.jpg)
+<img width="953" alt="ERD" src="https://user-images.githubusercontent.com/110369771/204196544-fd824969-ad9c-4ef1-962e-9ed3be0bb638.png">
+
 
 
 ## R7 - Detail any third party services that your app will use
