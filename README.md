@@ -125,7 +125,7 @@ The key functionalities of an ORM ( Object-relational-mapper ) is that it alows 
 
 
 ## R7 - Detail any third party services that your app will use
-This application does not use any third party services. All that is used is flask some other imports to make everything run smoothly.
+At the moment the only third party package that is used in this application is the flask import. This import has allowed my to add authentication and authorisation to this application. It has also been very useful in allowing me to access the datatbase and structuring the application. In the future i would like to impliment a third party application the gives me access to live game statistics to give fans more instight into each game. 
 
 
 ## R8 - Describe your projects models in terms of the relationships they have with each other
