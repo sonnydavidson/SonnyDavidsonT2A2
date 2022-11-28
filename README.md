@@ -14,7 +14,8 @@ CREATE USER eplapp_dev WITH PASSWORD 'benny';
 GRANT ALL PRIVILEGES ON DATABASE eplapp TO eplapp_dev;
 
 ## Install requirements to run the API
-- Install -r requirements.txt
+Install -r requirements.txt
+- Install all packages that are needed for the API to run
 
 ##	R1 - Identification of the problem you are trying to solve by building this particular app.
 With this application the main problem that i am looking to solve is that I believe that there is a hole in the market for an application that 
