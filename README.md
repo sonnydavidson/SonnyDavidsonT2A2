@@ -13,6 +13,9 @@ CREATE USER eplapp_dev WITH PASSWORD 'benny';
 
 GRANT ALL PRIVILEGES ON DATABASE eplapp TO eplapp_dev;
 
+## Install requirements to run the API
+- Install -r requirements.txt
+
 ##	R1 - Identification of the problem you are trying to solve by building this particular app.
 With this application the main problem that i am looking to solve is that I believe that there is a hole in the market for an application that 
 keeps track of player and team stats in details. I am looking to solve this problem by giving this app the ability and the structure to able to support 
